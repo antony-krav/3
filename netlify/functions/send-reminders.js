@@ -1,7 +1,3 @@
-/**
- * @schedule 0 7 * * *
- */
-
 // netlify/functions/send-reminders.js
 const { createClient } = require('@supabase/supabase-js');
 const { Telegraf } = require('telegraf');

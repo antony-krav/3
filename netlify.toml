@@ -13,3 +13,6 @@
 
 [functions]
   node_bundler = "esbuild"
+
+[functions."send-reminders"]
+  schedule = "0 7 * * *"
