@@ -2,8 +2,8 @@
 
 // === ВАШИ ДАННЫЕ SUPABASE ===
 // Замените на реальные значения!
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_KEY = process.env.SUPABASE_PUBLISHABLE_KEY;
+const SUPABASE_URL = "https://goopawxoqziytbxdnriy.supabase.co";
+const SUPABASE_KEY = "sb_publishable_8bngfypOUpPs66wzRywfNw_Q7-Soz64";
 
 console.log('🚀 Начинаю инициализацию Supabase...');
 
