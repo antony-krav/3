@@ -1,11 +1,15 @@
 [build]
-publish = "."
-functions = "netlify/functions"
-command = "npm install && npm run build"
+  publish = "public"              # Папка со статикой
+  functions = "netlify/functions" # Папка с функциями
+  command = "npm install"         # Устанавливаем зависимости
 
-# Для функций
-[functions]
-  node_bundler = "esbuild"
+[dev]
+  publish = "public"
+  functions = "netlify/functions"
+  targetPort = 3000
 
 [build.environment]
   NODE_VERSION = "18"
+
+[functions]
+  node_bundler = "esbuild"

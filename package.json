@@ -4,14 +4,14 @@
   "scripts": {
     "dev": "netlify dev",
     "build": "echo 'No build step required'",
-    "test:function": "node -r dotenv/config test-function.js"
+    "test:function": "node -e \"require('dotenv').config(); const func = require('./netlify/functions/send-reminders'); const event = { httpMethod: 'GET' }; const context = {}; func.handler(event, context).then(console.log).catch(console.error)\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.0",
-    "telegraf": "^4.12.2",
-    "dotenv": "^16.0.0"
+    "telegraf": "^4.12.2"
   },
   "devDependencies": {
+    "dotenv": "^16.0.0",
     "netlify-cli": "^15.0.0"
   }
 }

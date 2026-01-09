@@ -6,16 +6,28 @@
 const { createClient } = require('@supabase/supabase-js');
 const { Telegraf } = require('telegraf');
 
-// Ключи берутся из переменных окружения Netlify
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_SECRET_KEY = process.env.SUPABASE_SECRET_KEY;
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-
 exports.handler = async function(event, context) {
   console.log('🚀 Запуск функции уведомлений...');
   
   try {
     // Инициализация Supabase
+    const {
+      SUPABASE_URL,
+      SUPABASE_SECRET_KEY,
+      TELEGRAM_BOT_TOKEN
+    } = process.env;
+
+    // Проверяем наличие переменных
+    if (!SUPABASE_URL || !SUPABASE_SECRET_KEY || !TELEGRAM_BOT_TOKEN) {
+      console.error('❌ Отсутствуют переменные окружения');
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Environment variables missing' })
+      };
+    }
+
+    console.log('✅ Переменные окружения загружены');
+    
     const supabase = createClient(SUPABASE_URL, SUPABASE_SECRET_KEY);
     
     // Инициализация Telegram бота
