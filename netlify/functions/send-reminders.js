@@ -1,5 +1,5 @@
 /**
- * @schedule "0 7 * * *"  # Каждый день в 07:00 UTC (10:00 МСК)
+ * @schedule 0 7 * * *
  */
 
 // netlify/functions/send-reminders.js
